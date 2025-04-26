@@ -14,7 +14,7 @@ class App {
     public async initServer(): Promise<void> {
         if (!App.app || App.running) return;
         try {
-            const port: number = Number(process.env.PORT) || 3000;
+            const port: number = Number(process.env.PORT) || 3002;
             await App.app.listen({ port, host: '0.0.0.0' });
             console.log(`Servidor está rodando em http://localhost:${port}`);
             this.setRunning(true);
