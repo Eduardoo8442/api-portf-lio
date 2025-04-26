@@ -14,10 +14,11 @@ export default class DataBase {
         
         try {
             this.instance = await mysql.createConnection({
-                host: 'localhost',
-                user: 'eduardoo',
+                host: process.env.HOSTDB,
+                user: process.env.USERDB,
                 password: process.env.PASSWORDDB,
-                database: 'portfolio'
+                database: process.env.DATABASEDB,
+                port: process.env.PORTDB ? Number(process.env.PORTDB) : 3306,
             });
 
             console.log('Conectado ao banco de dados com o id: ' + this.instance.threadId);
